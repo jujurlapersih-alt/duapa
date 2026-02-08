@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenangan Kelas Kita</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(160deg,#6f4e37,#d2b48c);
+color:#3b2a1a;
+overflow-x:hidden;
+}
+
+/* ================= SLIDE 1 ================= */
+.intro{
+position:fixed;
+inset:0;
+background:linear-gradient(160deg,#4e3623,#c4a484);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:10;
+transition:transform 1.2s ease;
+overflow:hidden;
+}
+.intro.hide{transform:translateY(-100%)}
+
+/* BACKGROUND FOTO POPUP */
+.intro-bg img{
+position:absolute;
+width:260px;
+height:170px;
+object-fit:cover;
+border-radius:18px;
+opacity:0;
+filter:blur(4px);
+animation:introPopup 18s infinite;
+}
+.intro-bg img:nth-child(1){top:15%;left:10%;animation-delay:0s}
+.intro-bg img:nth-child(2){top:55%;left:65%;animation-delay:6s}
+.intro-bg img:nth-child(3){top:30%;left:40%;animation-delay:12s}
+
+@keyframes introPopup{
+0%{opacity:0;transform:scale(.8)}
+15%{opacity:.35;filter:blur(1px)}
+40%{opacity:.35}
+55%{opacity:0;transform:scale(1.1)}
+100%{opacity:0}
+}
+
+/* SURAT — CENTER FIX */
+.letter-box{
+position:relative;
+z-index:2;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+cursor:pointer;
+}
+
+.letter{
+width:220px;
+height:150px;
+background:#fffaf4;
+border-radius:8px;
+box-shadow:0 20px 40px rgba(0,0,0,.35);
+position:relative;
+overflow:hidden;
+animation:floatLetter 3s ease-in-out infinite;
+}
+
+.letter::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(135deg,transparent 50%,#e8dfd3 50%);
+}
+
+@keyframes floatLetter{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-12px)}
+}
+
+.letter-text{
+margin-top:25px;
+font-family:'Cormorant Garamond',serif;
+font-size:1.9em;
+color:#fff8f0;
+letter-spacing:1px;
+text-shadow:0 3px 6px rgba(0,0,0,.4);
+}
+
+/* ================= SLIDE 2 ================= */
+.section-two{
+position:relative;
+overflow:hidden;
+}
+
+/* BACKGROUND BERGERAK (DI BELAKANG) */
+.moving-bg{
+position:absolute;
+inset:0;
+z-index:0;
+pointer-events:none;
+}
+
+.moving-bg span{
+position:absolute;
+width:180px;
+height:180px;
+border-radius:50%;
+background:rgba(255,255,255,0.08);
+animation:moveBg 25s linear infinite;
+}
+.moving-bg span:nth-child(1){left:10%;top:80%;animation-delay:0s}
+.moving-bg span:nth-child(2){left:70%;top:30%;animation-delay:8s}
+.moving-bg span:nth-child(3){left:40%;top:95%;animation-delay:16s}
+
+@keyframes moveBg{
+from{transform:translateY(0)}
+to{transform:translateY(-160vh)}
+}
+
+/* KONTEN DI ATAS BACKGROUND */
+header{
+position:relative;
+z-index:2;
+text-align:center;
+padding:110px 20px 50px;
+}
+
+header h1{
+font-family:'Playfair Display',serif;
+font-size:2.5em;
+letter-spacing:2px;
+}
+
+header p{
+max-width:600px;
+margin:15px auto 0;
+line-height:1.8;
+}
+
+.container{
+position:relative;
+z-index:2;
+max-width:1100px;
+margin:auto;
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,248,240,.95);
+padding:22px;
+border-radius:28px;
+text-align:center;
+box-shadow:0 20px 40px rgba(0,0,0,.25);
+transition:.35s;
+}
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+}
+
+.card img{
+width:100%;
+max-width:260px;
+height:180px;
+object-fit:cover;
+border-radius:18px;
+margin-bottom:15px;
+}
+
+footer{
+text-align:center;
+padding:40px;
+opacity:.8;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+<source src="laguboi.mp3" type="audio/mpeg">
+</audio>
+
+<!-- SLIDE 1 -->
+<div class="intro" id="intro">
+
+<div class="intro-bg">
+<img src="fotokesatu.jpg">
+<img src="fotokedua.jpg">
+<img src="fotoketiga.jpg">
+</div>
+
+<div class="letter-box" id="openLetter">
+<div class="letter"></div>
+<div class="letter-text">
+Love You All So Bad<br>
+A Small Letter To Our Class
+</div>
+</div>
+
+</div>
+
+<!-- SLIDE 2 -->
+<section class="section-two">
+
+<div class="moving-bg">
+<span></span><span></span><span></span>
+</div>
+
+<header>
+<h1>Our Class Memories</h1>
+<p>
+From confusion to confidence, 
+<br>from strangers to family.<br>
+This class journey changed us forever.
+</p>
+</header>
+
+<div class="container">
+<div class="card">
+<img src="fotokesatu.jpg">
+<h3>The Moment We Won the Project (IZIN)</h3>
+<p>A memory carved with effort and pride.</p>
+</div>
+
+<div class="card">
+<img src="fotokedua.jpg">
+<h3>Our First Laboratory Experience</h3>
+<p>Small moments that became unforgettable.</p>
+</div>
+
+<div class="card">
+<img src="fotoketiga.jpg">
+<h3>Maam's Birthday</h3>
+<p>A warm memory wrapped in gratitude.</p>
+</div>
+
+<div class="card">
+<img src="fotokelima.jpg">
+<h3>Duapa as Ceremonial Officer</h3>
+<p>Maybe its not a best ceremony, but at least, we did it!</p>
+</div>
+
+<div class="card">
+<img src="fotokeempat.jpg">
+<h3>Our Turn as Secam Instructure</h3>
+<p>Another chaotic moment, but, yes, we did it!</p>
+</div>
+
+<div class="card">
+<img src="fotokeenam.jpg">
+<h3>Us and Rainy Day!</h3>
+<p>Love how we always romanticize the rain.</p>
+</div>
+
+<div class="card">
+<img src="fotoketujuh.jpg">
+<h3>Duapa's Food Project</h3>
+<p>One of most chaotic moment that we had. 🤍</p>
+</div>
+
+<div class="card">
+<img src="fotokedelapan.jpg">
+<h3>Our Graduation Photos</h3>
+<p>On this moment, we realize that our time is almost over</p>
+</div>
+
+<div class="card">
+<img src="fotokesembilan.jpg">
+<h3>Duapa's Childhood Memory</h3>
+<p>Maybe we are not like a childhood's friend for each other, but at least, we grewing up together n learn many lesson.</p>
+</div>
+</section>
+
+<footer>
+© 2026 — One class, one journey, forever remembered.
+</footer>
+
+<script>
+const letter=document.getElementById("openLetter");
+const intro=document.getElementById("intro");
+const music=document.getElementById("bgMusic");
+music.volume=0;
+
+function fadeIn(){
+let v=0;
+music.play();
+const f=setInterval(()=>{
+if(v<1){v+=0.02;music.volume=v}else clearInterval(f)
+},100)
+}
+
+letter.addEventListener("click",()=>{
+intro.classList.add("hide");
+fadeIn();
+});
+</script>
+
+</body>
+</html>
